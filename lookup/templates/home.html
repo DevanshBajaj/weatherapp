@@ -2,6 +2,15 @@
 
 {% block content %}
 
-<h1>hello world!!</h1>
+<h1>Barely Accurate Weather</h1>
+<br/>
+Weather: {{ api.weather.0.main}}/{{api.weather.0.description}}<br/>
+<br/>
+Temperature: {{api.main.temp}} Celsius, {{api.main.temp_max}}C / {{api.main.temp_min}}C<br/>
+<br/>
+Country: {{api.sys.country}}<br/>
+<br/>
+City: {{api.name}}<br/>
+
 
 {% endblock %}
