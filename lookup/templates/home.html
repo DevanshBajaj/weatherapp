@@ -2,15 +2,28 @@
 
 {% block content %}
 
-<h1>Barely Accurate Weather</h1>
 <br/>
-Weather: {{ api.weather.0.main}}/{{api.weather.0.description}}<br/>
-<br/>
-Temperature: {{api.main.temp}} Celsius, {{api.main.temp_max}}C / {{api.main.temp_min}}C<br/>
-<br/>
-Country: {{api.sys.country}}<br/>
-<br/>
-City: {{api.name}}<br/>
 
+{% if api%}
+    {% if api == "Error..."%}
+        There was an error, please try again...
+    {% else %}
+
+<div class="jumbotron">
+  <h1 class="display-4">Pollution: {{api.data.current.pollution.aqius}} US AQI<br/>
+  <p class="lead">Temprature: {{api.data.current.weather.tp}}C <br/>
+    Humidity: {{api.data.current.weather.hu}}% | Wind: {{api.data.current.weather.wd}} km/h | Pressure:{{api.data.current.weather.pr}} mb | </p>
+  <p class="lead">Location: {{api.data.city}}, {{api.data.state}}<br/>
+  {{api.data.country}}</p>
+</div>
+
+    
+     {% endif %}
+{% endif %}
+
+
+
+
+ 
 
 {% endblock %}
