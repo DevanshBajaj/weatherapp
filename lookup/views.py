@@ -6,7 +6,7 @@ def home(request):
 
     if request.method == "POST":
         city_name = request.POST['city_name']
-        api_request = requests.get("http://api.airvisual.com/v2/nearest_city?key=8b5e9c27-7e2c-4526-9b56-fb94072dd54d")
+        api_request = requests.get("http://api.openweathermap.org/data/2.5/weather?q=" + city_name + "&units=metric&APPID=d0a3abf9e9950b930853deff99063689")
         try:
             api = json.loads(api_request.content)
         except Exception as e:
@@ -17,7 +17,7 @@ def home(request):
 
 
     else:
-        api_request = requests.get("http://api.airvisual.com/v2/nearest_city?key=8b5e9c27-7e2c-4526-9b56-fb94072dd54d")
+        api_request = requests.get("https://api.openweathermap.org/data/2.5/weather?q=Ghaziabad&units=metric&appid=d0a3abf9e9950b930853deff99063689")
         try:
             api = json.loads(api_request.content)
         except Exception as e:
